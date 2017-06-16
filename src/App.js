@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, InfoWindow, Marker } from 'react-google-maps';
 import MarkerClusterer from 'react-google-maps/lib/addons/MarkerClusterer';
+import fetch from 'isomorphic-fetch';
 import moment from 'moment';
 
 import './App.css';
@@ -53,7 +54,7 @@ class App extends Component {
 
     let markers = obj.features.map(f => (
         {
-          position: new window.google.maps.LatLng(f.geometry.coordinates[0], f.geometry.coordinates[1]),
+          position: new window.google.maps.LatLng(f.geometry.coordinates[1], f.geometry.coordinates[0]),
           showInfo: false,
           infoContent: (
             <div>
